@@ -23,6 +23,13 @@ const Texture* ResourceManager::get(std::string name) const
   }
 }
 
+/*
+ * Loads a texture. Returns the texture immediately if it has already been
+ * loaded.
+ *
+ * Assumes textures are located in `resources/textures` and currently only
+ * supports .bmp files.
+ */
 template <>
 const Texture* ResourceManager::load(std::string name)
 {

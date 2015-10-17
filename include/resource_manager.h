@@ -15,6 +15,11 @@ class Texture;
 /**
  * @class ResourceManager
  * @brief Manages resources used in the engine
+ *
+ * Assumes everything is in a folder called `resources` in the same directory as
+ * the executable. Resources are then expected to be in subfolders named after
+ * the type of resource:
+ *  - Texture in `/textures`
  */
 class ResourceManager
 {
