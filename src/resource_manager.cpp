@@ -4,6 +4,7 @@
 //
 
 #include <SDL2/SDL_image.h>
+#include <OpenGL/gl3.h>
 #include "resource_manager.h"
 #include "texture.h"
 
@@ -27,8 +28,8 @@ const Texture* ResourceManager::get(std::string name) const
  * Loads a texture. Returns the texture immediately if it has already been
  * loaded.
  *
- * Assumes textures are located in `resources/textures` and currently only
- * supports .bmp files.
+ * Assumes textures are located in `resources/textures`. Doesn't support
+ * textures with an alpha channel currently.
  */
 template <>
 const Texture* ResourceManager::load(std::string name)
@@ -41,22 +42,27 @@ const Texture* ResourceManager::load(std::string name)
   }
   else
   {
-    const auto path = "resources/textures/" + name + ".bmp";
+    const auto path = "resources/textures/" + name;
     const auto surface = IMG_Load(path.c_str());
 
     if (surface != nullptr)
     {
-      auto texture = std::make_unique<Texture>(surface->w, surface->h, surface->pixels);
+      const auto converted_surface = SDL_ConvertSurfaceFormat(surface, SDL_PIXELFORMAT_RGB24, 0);
       SDL_FreeSurface(surface);
 
-      textures_[name] = std::move(texture);
+      if (converted_surface != nullptr)
+      {
+        auto texture = std::make_unique<Texture>(converted_surface->w, converted_surface->h, GL_RGB,
+                                                 converted_surface->pixels);
+        SDL_FreeSurface(converted_surface);
 
-      return textures_[name].get();
+        textures_[name] = std::move(texture);
+
+        return textures_[name].get();
+      }
     }
-    else
-    {
-      return nullptr;
-    }
+
+    return nullptr;
   }
 }
 

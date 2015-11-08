@@ -8,6 +8,7 @@
 
 #include <memory>
 #include <BarelyGL/GL.h>
+#include <OpenGL/gltypes.h>
 
 namespace BarelyEngine {
 /**
@@ -22,9 +23,10 @@ public:
   *
   * @param width width of the texture
   * @param height height of the texture
+  * @param format pixel format of the texture
   * @param pixels raw pixel data of the texture
   */
-  Texture(int width, int height, const void* pixels);
+  Texture(int width, int height, GLenum format, const void* pixels);
 
   /**
    * @brief Bind the texture for the next set of draw calls
