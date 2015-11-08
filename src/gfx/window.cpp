@@ -14,7 +14,8 @@ using namespace std::literals;
 namespace BarelyEngine {
 const int Window::kCentered = SDL_WINDOWPOS_CENTERED;
 
-Window::Window(const std::string& title, int width, int height, int x, int y)
+Window::Window(const std::string& title, const int width, const int height, const int x,
+               const int y)
 {
   // Use a try-catch here as the SDL_Window could have already been created when
   // the OpenGL context fails, so we need to clean that up!
@@ -37,7 +38,7 @@ Window::~Window()
   SDL_GL_DeleteContext(context_);
 }
 
-bool Window::set_vsync(bool vsync)
+bool Window::set_vsync(const bool vsync)
 {
   return SDL_GL_SetSwapInterval(vsync);
 }
@@ -52,7 +53,8 @@ void Window::swap_buffer()
 //        Private Methods
 // =============================
 //
-void Window::create_window(const std::string& title, int width, int height, int x, int y)
+void Window::create_window(const std::string& title, const int width, const int height, const int x,
+                           const int y)
 {
   window_ = SDL_CreateWindow(title.c_str(),                       // title
                              x,                                   // X position of window

@@ -6,7 +6,7 @@
 #include "texture.h"
 
 namespace BarelyEngine {
-Texture::Texture(int width, int height, GLenum format, const void* pixels)
+Texture::Texture(const int width, const int height, const GLenum format, const void* const pixels)
 {
   texture_ = std::make_unique<GL::Texture>(width, height, format, pixels);
 }
