@@ -10,77 +10,30 @@
 
 namespace BarelyEngine {
 /**
+ * @class enum LogLevel
+ * @brief Various levels of log output
+ */
+enum class LogLevel
+{
+  DEBUG_ONLY,
+  INFO,
+  WARN,
+  ERROR,
+  FATAL
+};
+
+/**
  * @class Logger
- * @brief Simple utility for logging to a stream
+ * @brief Abstract logging interface allowing custom loggers to be registered
+ *        with the engine.
+ *
+ *        For convenience, a BasicLogger implementation is provided within
+ *        BarelyEngine.
  */
 class Logger
 {
 public:
-  /**
-   * @brief Various levels of log output
-   */
-  enum class Level
-  {
-    INFO,
-    WARN,
-    ERROR,
-    FATAL
-  };
-
-  /*
-   * @brief Construct a new logger for a particular stream
-   *
-   * @param stream the stream the logger will output to
-   */
-  Logger(std::ostream& stream)
-    : stream_(stream) {};
-
-  /*
-   * @brief Log a message
-   *
-   * @param level the logging level to use
-   * @param message the message to log
-   */
-  void log(Level level, std::string message);
-
-  /*
-   * @brief Log a message with INFO level
-   *
-   * @param message the message to log
-   */
-  void log_info(std::string message);
-
-  /*
-   * @brief Log a message with WARN level
-   *
-   * @param message the message to log
-   */
-  void log_warn(std::string message);
-
-  /*
-   * @brief Log a message with ERROR level
-   *
-   * @param message the message to log
-   */
-  void log_error(std::string message);
-
-  /*
-   * @brief Log a message with FATAL level
-   *
-   * @param message the message to log
-   */
-  void log_fatal(std::string message);
-
-private:
-  /*
-   * @brief Gets the time for use in the logger output
-   *
-   * @returns a string representing the local time
-   */
-  std::string time() const;
-
-  /// The stream this logger outputs to
-  std::ostream& stream_;
+  virtual void log(LogLevel level, const std::string& message) = 0;
 };
 } // end of namespace BarelyEngine
 

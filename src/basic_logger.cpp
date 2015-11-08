@@ -4,7 +4,7 @@
 //
 
 #include <iostream>
-#include "logger.h"
+#include "basic_logger.h"
 
 namespace BarelyEngine {
 /*
@@ -13,25 +13,34 @@ namespace BarelyEngine {
  *    (2015-03-15 15:00) [INFO] This is a message!
  *
  */
-void Logger::log(Logger::Level level, std::string message)
+void BasicLogger::log(const LogLevel level, const std::string& message)
 {
+  // Only show DEBUG_ONLY messages when running in debug mode
+#ifndef DEBUG
+  if (level == Level::DEBUG_ONLY) return;
+#endif
+
   std::string level_tag;
 
   switch (level)
   {
-    case Level::WARN:
+    case LogLevel::DEBUG_ONLY:
+      level_tag = "[DEBUG] ";
+      break;
+
+    case LogLevel::WARN:
       level_tag = " [WARN] ";
       break;
 
-    case Level::ERROR:
+    case LogLevel::ERROR:
       level_tag = "[ERROR] ";
       break;
 
-    case Level::FATAL:
+    case LogLevel::FATAL:
       level_tag = "[FATAL] ";
       break;
 
-    case Level::INFO:
+    case LogLevel::INFO:
     default:
       level_tag = " [INFO] ";
       break;
@@ -40,33 +49,13 @@ void Logger::log(Logger::Level level, std::string message)
   stream_ << "(" << time() << ")" << level_tag << message << std::endl;
 }
 
-void Logger::log_info(std::string message)
-{
-  log(Level::INFO, message);
-}
-
-void Logger::log_warn(std::string message)
-{
-  log(Level::WARN, message);
-}
-
-void Logger::log_error(std::string message)
-{
-  log(Level::ERROR, message);
-}
-
-void Logger::log_fatal(std::string message)
-{
-  log(Level::FATAL, message);
-}
-
 //
 // =============================
 //        Private Methods
 // =============================
 //
 
-std::string Logger::time() const
+std::string BasicLogger::time() const
 {
   const auto time = std::time(nullptr);
   std::string time_str;

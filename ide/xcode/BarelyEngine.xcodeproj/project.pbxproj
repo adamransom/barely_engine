@@ -12,13 +12,18 @@
 		660628FF1BD03F6200563284 /* resource_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660628FE1BD03F6200563284 /* resource_manager.cpp */; };
 		660629001BD03FAF00563284 /* resource_manager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 660628FD1BD03F5400563284 /* resource_manager.h */; };
 		6606290C1BD048FA00563284 /* libBarelyGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 660628FA1BD03A2200563284 /* libBarelyGL.a */; };
+		660C978E1BF0047A00913558 /* logger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66996A1B1AB558C2009400C5 /* logger.h */; };
 		6666A82B1BC6FCEE00EB9C5F /* engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6666A82A1BC6FCEE00EB9C5F /* engine.cpp */; };
 		6666A82C1BC6FCF400EB9C5F /* engine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6666A8291BC6FCE600EB9C5F /* engine.h */; };
 		6666A8301BC7023400EB9C5F /* exception.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6666A82F1BC7022F00EB9C5F /* exception.h */; };
 		6666A8371BC7147B00EB9C5F /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6666A8361BC7147B00EB9C5F /* window.cpp */; };
 		6666A8391BC7150900EB9C5F /* window.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6666A8341BC7146B00EB9C5F /* window.h */; };
-		66996A1F1AB558C2009400C5 /* logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66996A1D1AB558C2009400C5 /* logger.cpp */; };
-		66996A441AB56059009400C5 /* logger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66996A1B1AB558C2009400C5 /* logger.h */; };
+		6695527E1BEFFB4900AE3199 /* logging.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6695527D1BEFF9ED00AE3199 /* logging.h */; };
+		66AAF5051BF1413000B54E43 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AAF5041BF1413000B54E43 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
+		66AAF5071BF143EE00B54E43 /* engine_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AAF5061BF143EE00B54E43 /* engine_tests.cpp */; settings = {ASSET_TAGS = (); }; };
+		66AAF50A1BF144FD00B54E43 /* libBarelyEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66996A131AB55894009400C5 /* libBarelyEngine.a */; };
+		66E54A091BF2AA2D00634445 /* basic_logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E54A081BF2AA2D00634445 /* basic_logger.cpp */; settings = {ASSET_TAGS = (); }; };
+		66E54A0A1BF2AB3300634445 /* basic_logger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66E54A071BF2AA1000634445 /* basic_logger.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +55,9 @@
 				6666A8301BC7023400EB9C5F /* exception.h in CopyFiles */,
 				660629001BD03FAF00563284 /* resource_manager.h in CopyFiles */,
 				6666A82C1BC6FCF400EB9C5F /* engine.h in CopyFiles */,
-				66996A441AB56059009400C5 /* logger.h in CopyFiles */,
+				660C978E1BF0047A00913558 /* logger.h in CopyFiles */,
+				6695527E1BEFFB4900AE3199 /* logging.h in CopyFiles */,
+				66E54A0A1BF2AB3300634445 /* basic_logger.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,9 +74,15 @@
 		6666A82F1BC7022F00EB9C5F /* exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exception.h; sourceTree = "<group>"; };
 		6666A8341BC7146B00EB9C5F /* window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = window.h; sourceTree = "<group>"; };
 		6666A8361BC7147B00EB9C5F /* window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = window.cpp; sourceTree = "<group>"; };
+		6695527D1BEFF9ED00AE3199 /* logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logging.h; sourceTree = "<group>"; };
 		66996A131AB55894009400C5 /* libBarelyEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBarelyEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		66996A1B1AB558C2009400C5 /* logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logger.h; sourceTree = "<group>"; };
-		66996A1D1AB558C2009400C5 /* logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = logger.cpp; sourceTree = "<group>"; };
+		66AAF4F81BF140A300B54E43 /* catch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = catch.hpp; sourceTree = "<group>"; };
+		66AAF4FD1BF140C600B54E43 /* BarelyEngineTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BarelyEngineTests; sourceTree = BUILT_PRODUCTS_DIR; };
+		66AAF5041BF1413000B54E43 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		66AAF5061BF143EE00B54E43 /* engine_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = engine_tests.cpp; sourceTree = "<group>"; };
+		66E54A071BF2AA1000634445 /* basic_logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basic_logger.h; sourceTree = "<group>"; };
+		66E54A081BF2AA2D00634445 /* basic_logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = basic_logger.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,9 +145,11 @@
 			isa = PBXGroup;
 			children = (
 				6666A8331BC7146B00EB9C5F /* gfx */,
+				6695527D1BEFF9ED00AE3199 /* logging.h */,
 				660628FD1BD03F5400563284 /* resource_manager.h */,
 				6666A82F1BC7022F00EB9C5F /* exception.h */,
 				6666A8291BC6FCE600EB9C5F /* engine.h */,
+				66E54A071BF2AA1000634445 /* basic_logger.h */,
 				66996A1B1AB558C2009400C5 /* logger.h */,
 			);
 			name = include;
@@ -147,7 +162,7 @@
 				6666A8351BC7147B00EB9C5F /* gfx */,
 				660628FE1BD03F6200563284 /* resource_manager.cpp */,
 				6666A82A1BC6FCEE00EB9C5F /* engine.cpp */,
-				66996A1D1AB558C2009400C5 /* logger.cpp */,
+				66E54A081BF2AA2D00634445 /* basic_logger.cpp */,
 			);
 			name = src;
 			path = ../../src;
@@ -227,9 +242,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6666A8371BC7147B00EB9C5F /* window.cpp in Sources */,
+				66E54A091BF2AA2D00634445 /* basic_logger.cpp in Sources */,
 				660628ED1BD039C400563284 /* texture.cpp in Sources */,
 				660628FF1BD03F6200563284 /* resource_manager.cpp in Sources */,
-				66996A1F1AB558C2009400C5 /* logger.cpp in Sources */,
 				6666A82B1BC6FCEE00EB9C5F /* engine.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
