@@ -13,6 +13,7 @@
 		660629001BD03FAF00563284 /* resource_manager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 660628FD1BD03F5400563284 /* resource_manager.h */; };
 		6606290C1BD048FA00563284 /* libBarelyGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 660628FA1BD03A2200563284 /* libBarelyGL.a */; };
 		660C978E1BF0047A00913558 /* logger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66996A1B1AB558C2009400C5 /* logger.h */; };
+		666658A81BF1505800B48F5B /* basic_logger_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666658A71BF1505800B48F5B /* basic_logger_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		6666A82B1BC6FCEE00EB9C5F /* engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6666A82A1BC6FCEE00EB9C5F /* engine.cpp */; };
 		6666A82C1BC6FCF400EB9C5F /* engine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6666A8291BC6FCE600EB9C5F /* engine.h */; };
 		6666A8301BC7023400EB9C5F /* exception.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6666A82F1BC7022F00EB9C5F /* exception.h */; };
@@ -85,6 +86,7 @@
 		660628F51BD03A2200563284 /* BarelyGL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BarelyGL.xcodeproj; path = ../../../barely_gl/ide/xcode/BarelyGL.xcodeproj; sourceTree = "<group>"; };
 		660628FD1BD03F5400563284 /* resource_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resource_manager.h; sourceTree = "<group>"; };
 		660628FE1BD03F6200563284 /* resource_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = resource_manager.cpp; sourceTree = "<group>"; };
+		666658A71BF1505800B48F5B /* basic_logger_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = basic_logger_tests.cpp; sourceTree = "<group>"; };
 		6666A8291BC6FCE600EB9C5F /* engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
 		6666A82A1BC6FCEE00EB9C5F /* engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = engine.cpp; sourceTree = "<group>"; };
 		6666A82F1BC7022F00EB9C5F /* exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exception.h; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				66AAF4F81BF140A300B54E43 /* catch.hpp */,
 				66AAF5041BF1413000B54E43 /* main.cpp */,
 				66AAF5061BF143EE00B54E43 /* engine_tests.cpp */,
+				666658A71BF1505800B48F5B /* basic_logger_tests.cpp */,
 			);
 			name = tests;
 			path = ../../tests;
@@ -316,6 +319,7 @@
 			files = (
 				66AAF5051BF1413000B54E43 /* main.cpp in Sources */,
 				66AAF5071BF143EE00B54E43 /* engine_tests.cpp in Sources */,
+				666658A81BF1505800B48F5B /* basic_logger_tests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +511,7 @@
 				66AAF5031BF140C600B54E43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

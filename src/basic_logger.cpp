@@ -10,7 +10,7 @@ namespace BarelyEngine {
 /*
  * Logs a message to the stream in the format:
  *
- *    (2015-03-15 15:00) [INFO] This is a message!
+ *    (2015-03-15 15:00:00) [INFO] This is a message!
  *
  */
 void BasicLogger::log(const LogLevel level, const std::string& message)
