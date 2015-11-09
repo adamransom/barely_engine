@@ -19,11 +19,11 @@
 		6666A8371BC7147B00EB9C5F /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6666A8361BC7147B00EB9C5F /* window.cpp */; };
 		6666A8391BC7150900EB9C5F /* window.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6666A8341BC7146B00EB9C5F /* window.h */; };
 		6695527E1BEFFB4900AE3199 /* logging.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6695527D1BEFF9ED00AE3199 /* logging.h */; };
+		66E54A091BF2AA2D00634445 /* basic_logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E54A081BF2AA2D00634445 /* basic_logger.cpp */; settings = {ASSET_TAGS = (); }; };
+		66E54A0A1BF2AB3300634445 /* basic_logger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66E54A071BF2AA1000634445 /* basic_logger.h */; };
 		66AAF5051BF1413000B54E43 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AAF5041BF1413000B54E43 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
 		66AAF5071BF143EE00B54E43 /* engine_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AAF5061BF143EE00B54E43 /* engine_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		66AAF50A1BF144FD00B54E43 /* libBarelyEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66996A131AB55894009400C5 /* libBarelyEngine.a */; };
-		66E54A091BF2AA2D00634445 /* basic_logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E54A081BF2AA2D00634445 /* basic_logger.cpp */; settings = {ASSET_TAGS = (); }; };
-		66E54A0A1BF2AB3300634445 /* basic_logger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66E54A071BF2AA1000634445 /* basic_logger.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +40,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 668C65821A8E214100ADB924;
 			remoteInfo = BarelyGL;
+		};
+		66AAF5081BF144EF00B54E43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66996A0B1AB55894009400C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66996A121AB55894009400C5;
+			remoteInfo = BarelyEngine;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -61,6 +68,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		66AAF4FB1BF140C600B54E43 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -75,14 +91,15 @@
 		6666A8341BC7146B00EB9C5F /* window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = window.h; sourceTree = "<group>"; };
 		6666A8361BC7147B00EB9C5F /* window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = window.cpp; sourceTree = "<group>"; };
 		6695527D1BEFF9ED00AE3199 /* logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logging.h; sourceTree = "<group>"; };
+		66E54A071BF2AA1000634445 /* basic_logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basic_logger.h; sourceTree = "<group>"; };
+		66E54A081BF2AA2D00634445 /* basic_logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = basic_logger.cpp; sourceTree = "<group>"; };
 		66996A131AB55894009400C5 /* libBarelyEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBarelyEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		66996A1B1AB558C2009400C5 /* logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logger.h; sourceTree = "<group>"; };
 		66AAF4F81BF140A300B54E43 /* catch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = catch.hpp; sourceTree = "<group>"; };
+		66E54A041BF28BC600634445 /* fakeit.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = fakeit.hpp; sourceTree = "<group>"; };
 		66AAF4FD1BF140C600B54E43 /* BarelyEngineTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BarelyEngineTests; sourceTree = BUILT_PRODUCTS_DIR; };
 		66AAF5041BF1413000B54E43 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		66AAF5061BF143EE00B54E43 /* engine_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = engine_tests.cpp; sourceTree = "<group>"; };
-		66E54A071BF2AA1000634445 /* basic_logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basic_logger.h; sourceTree = "<group>"; };
-		66E54A081BF2AA2D00634445 /* basic_logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = basic_logger.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +108,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6606290C1BD048FA00563284 /* libBarelyGL.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66AAF4FA1BF140C600B54E43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66AAF50A1BF144FD00B54E43 /* libBarelyEngine.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +154,7 @@
 				660628F51BD03A2200563284 /* BarelyGL.xcodeproj */,
 				66996A1A1AB558C2009400C5 /* include */,
 				66996A1C1AB558C2009400C5 /* src */,
+				66AAF4F71BF140A300B54E43 /* tests */,
 				66996A141AB55894009400C5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -137,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				66996A131AB55894009400C5 /* libBarelyEngine.a */,
+				66AAF4FD1BF140C600B54E43 /* BarelyEngineTests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,6 +195,18 @@
 			path = ../../src;
 			sourceTree = "<group>";
 		};
+		66AAF4F71BF140A300B54E43 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				66E54A041BF28BC600634445 /* fakeit.hpp */,
+				66AAF4F81BF140A300B54E43 /* catch.hpp */,
+				66AAF5041BF1413000B54E43 /* main.cpp */,
+				66AAF5061BF143EE00B54E43 /* engine_tests.cpp */,
+			);
+			name = tests;
+			path = ../../tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,6 +228,24 @@
 			productReference = 66996A131AB55894009400C5 /* libBarelyEngine.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		66AAF4FC1BF140C600B54E43 /* BarelyEngineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66AAF5011BF140C600B54E43 /* Build configuration list for PBXNativeTarget "BarelyEngineTests" */;
+			buildPhases = (
+				66AAF4F91BF140C600B54E43 /* Sources */,
+				66AAF4FA1BF140C600B54E43 /* Frameworks */,
+				66AAF4FB1BF140C600B54E43 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66AAF5091BF144EF00B54E43 /* PBXTargetDependency */,
+			);
+			name = BarelyEngineTests;
+			productName = BarelyEngineTests;
+			productReference = 66AAF4FD1BF140C600B54E43 /* BarelyEngineTests */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -200,6 +257,9 @@
 				TargetAttributes = {
 					66996A121AB55894009400C5 = {
 						CreatedOnToolsVersion = 6.2;
+					};
+					66AAF4FC1BF140C600B54E43 = {
+						CreatedOnToolsVersion = 7.0.1;
 					};
 				};
 			};
@@ -222,6 +282,7 @@
 			projectRoot = "";
 			targets = (
 				66996A121AB55894009400C5 /* BarelyEngine */,
+				66AAF4FC1BF140C600B54E43 /* BarelyEngineTests */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +310,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		66AAF4F91BF140C600B54E43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66AAF5051BF1413000B54E43 /* main.cpp in Sources */,
+				66AAF5071BF143EE00B54E43 /* engine_tests.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -256,6 +326,11 @@
 			isa = PBXTargetDependency;
 			name = BarelyGL;
 			targetProxy = 660628FB1BD03A2C00563284 /* PBXContainerItemProxy */;
+		};
+		66AAF5091BF144EF00B54E43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66996A121AB55894009400C5 /* BarelyEngine */;
+			targetProxy = 66AAF5081BF144EF00B54E43 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -372,6 +447,38 @@
 			};
 			name = Release;
 		};
+		66AAF5021BF140C600B54E43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				OTHER_LDFLAGS = (
+					"-I/usr/local/include/SDL2",
+					"-D_THREAD_SAFE",
+					"-L/usr/local/lib",
+					"-lSDL2",
+					"-lSDL2_image",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		66AAF5031BF140C600B54E43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_NO_COMMON_BLOCKS = YES;
+				OTHER_LDFLAGS = (
+					"-I/usr/local/include/SDL2",
+					"-D_THREAD_SAFE",
+					"-L/usr/local/lib",
+					"-lSDL2",
+					"-lSDL2_image",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -392,6 +499,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		66AAF5011BF140C600B54E43 /* Build configuration list for PBXNativeTarget "BarelyEngineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66AAF5021BF140C600B54E43 /* Debug */,
+				66AAF5031BF140C600B54E43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
