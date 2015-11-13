@@ -30,8 +30,9 @@ public:
    *
    * @param level the logging level to use
    * @param message the message to log
+   * @param prefix the prefix to add to the log
    */
-  void log(LogLevel level, const std::string& message);
+  void log(LogLevel level, const std::string& message, const std::string& prefix = "");
 
 private:
   /*

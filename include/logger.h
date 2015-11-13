@@ -33,7 +33,14 @@ enum class LogLevel
 class Logger
 {
 public:
-  virtual void log(LogLevel level, const std::string& message) = 0;
+  /*
+   * @brief Log a message
+   *
+   * @param level the logging level to use
+   * @param message the message to log
+   * @param prefix the prefix to add to the log
+   */
+  virtual void log(LogLevel level, const std::string& message, const std::string& prefix = "") = 0;
 };
 } // end of namespace BarelyEngine
 

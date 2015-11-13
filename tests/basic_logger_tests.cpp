@@ -30,4 +30,12 @@ TEST_CASE("Logging Messages", "[basic_logger]")
 
     REQUIRE(stream.str().size() == target_size);
   }
+
+
+  SECTION("Includes prefix if specified")
+  {
+    logger.log(LogLevel::INFO, "Test", "Engine");
+
+    REQUIRE(stream.str().find("<Engine>") != std::string::npos);
+  }
 }

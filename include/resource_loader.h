@@ -53,19 +53,19 @@ protected:
 template <typename T>
 void ResourceLoader<T>::loading(const std::string& path)
 {
-  LOG_DEBUG("Loading resource '" + path + "'...");
+  BE_LOG_DEBUG("Loading resource '" + path + "'...");
 }
 
 template <typename T>
 void ResourceLoader<T>::loaded(const std::string& path)
 {
-  LOG("Loaded resource '" + path + "'");
+  BE_LOG("Loaded resource '" + path + "'");
 }
 
 template <typename T>
 void ResourceLoader<T>::failed(const std::string& path, const std::string& message)
 {
-  LOG_WARN("Failed to load resource '" + path + "' (" + message + ")");
+  BE_LOG_WARN("Failed to load resource '" + path + "' (" + message + ")");
 }
 } // end of namespace BarelyEngine
 

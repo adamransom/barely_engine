@@ -153,7 +153,7 @@ const T* ResourceManager<T>::get(const Resource<T>& resource) const
 template <typename T>
 void ResourceManager<T>::reload()
 {
-  LOG("Reloading all resources...");
+  BE_LOG("Reloading all resources...");
   for (const auto& resource : resources_)
   {
     force_load(resource.first);
@@ -163,7 +163,7 @@ void ResourceManager<T>::reload()
 template <typename T>
 void ResourceManager<T>::reload(const std::string& name)
 {
-  LOG("Reloading resource '" + name + "'...");
+  BE_LOG("Reloading resource '" + name + "'...");
   force_load(name);
 }
 

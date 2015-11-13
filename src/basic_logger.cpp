@@ -13,7 +13,7 @@ namespace BarelyEngine {
  *    (2015-03-15 15:00:00) [INFO] This is a message!
  *
  */
-void BasicLogger::log(const LogLevel level, const std::string& message)
+void BasicLogger::log(const LogLevel level, const std::string& message, const std::string& prefix)
 {
   // Only show DEBUG_ONLY messages when running in debug mode
 #ifndef DEBUG
@@ -46,7 +46,14 @@ void BasicLogger::log(const LogLevel level, const std::string& message)
       break;
   }
 
-  stream_ << "(" << time() << ")" << level_tag << message << std::endl;
+  stream_ << "(" << time() << ")" << level_tag;
+
+  if (!prefix.empty())
+  {
+    stream_ << "<" + prefix + "> ";
+  }
+
+  stream_ << message << std::endl;
 }
 
 //

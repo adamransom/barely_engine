@@ -46,8 +46,9 @@ public:
    *
    * @param level the level to log at
    * @param message the message to log
+   * @param prefix the prefix to add to the log
    */
-  static void log(LogLevel level, const std::string& message);
+  static void log(LogLevel level, const std::string& message, const std::string& prefix = "");
 
   /**
    * @brief Gets the list of registered loggers

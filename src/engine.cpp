@@ -37,13 +37,13 @@ void Engine::unregister_logger(Logger* const logger)
   loggers_.erase(std::remove(loggers_.begin(), loggers_.end(), logger), loggers_.end());
 }
 
-void Engine::log(const LogLevel level, const std::string& message)
+void Engine::log(const LogLevel level, const std::string& message, const std::string& prefix)
 {
   for (const auto logger : loggers_)
   {
     if (logger != nullptr)
     {
-      logger->log(level, message);
+      logger->log(level, message, prefix);
     }
   }
 }

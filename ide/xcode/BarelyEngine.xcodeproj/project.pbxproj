@@ -14,6 +14,7 @@
 		660C978E1BF0047A00913558 /* logger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66996A1B1AB558C2009400C5 /* logger.h */; };
 		661028601BF6853F009714FA /* resource_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6610285F1BF6853F009714FA /* resource_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		6627654A1BF2B59A00624AA3 /* libBarelyEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66996A131AB55894009400C5 /* libBarelyEngine.a */; };
+		664000DD1BF69F3C009E502D /* logging.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6695527D1BEFF9ED00AE3199 /* logging.h */; };
 		665F40311BF3DBA300658EFF /* resource_manager_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665F40301BF3DBA300658EFF /* resource_manager_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		666658A81BF1505800B48F5B /* basic_logger_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666658A71BF1505800B48F5B /* basic_logger_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		6666A82B1BC6FCEE00EB9C5F /* engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6666A82A1BC6FCEE00EB9C5F /* engine.cpp */; };
@@ -21,7 +22,6 @@
 		6666A8301BC7023400EB9C5F /* exception.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6666A82F1BC7022F00EB9C5F /* exception.h */; };
 		6666A8371BC7147B00EB9C5F /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6666A8361BC7147B00EB9C5F /* window.cpp */; };
 		6666A8391BC7150900EB9C5F /* window.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6666A8341BC7146B00EB9C5F /* window.h */; };
-		6695527E1BEFFB4900AE3199 /* logging.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6695527D1BEFF9ED00AE3199 /* logging.h */; };
 		66AAF5051BF1413000B54E43 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AAF5041BF1413000B54E43 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
 		66AAF5071BF143EE00B54E43 /* engine_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AAF5061BF143EE00B54E43 /* engine_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		66B7E2DB1BF5436D0079D5B1 /* texture_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B7E2DA1BF5436D0079D5B1 /* texture_loader.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -69,10 +69,10 @@
 				660629001BD03FAF00563284 /* resource_manager.h in CopyFiles */,
 				66B7E2DD1BF54AEB0079D5B1 /* resource_loader.h in CopyFiles */,
 				66B7E2DF1BF54AF30079D5B1 /* resource.h in CopyFiles */,
+				664000DD1BF69F3C009E502D /* logging.h in CopyFiles */,
 				66B7E2DE1BF54AF10079D5B1 /* texture_loader.h in CopyFiles */,
 				6666A82C1BC6FCF400EB9C5F /* engine.h in CopyFiles */,
 				660C978E1BF0047A00913558 /* logger.h in CopyFiles */,
-				6695527E1BEFFB4900AE3199 /* logging.h in CopyFiles */,
 				66E54A0A1BF2AB3300634445 /* basic_logger.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
