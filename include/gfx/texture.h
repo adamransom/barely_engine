@@ -7,8 +7,8 @@
 #define BE_TEXTURE_H
 
 #include <memory>
-#include <BarelyGL/GL.h>
 #include <OpenGL/gltypes.h>
+#include <BarelyGL/texture.h>
 
 namespace BarelyEngine {
 /**
@@ -63,8 +63,8 @@ public:
   Texture& operator=(const Texture& other) = delete;
 
 private:
-  /// The underlying GL::Texture object
-  std::unique_ptr<GL::Texture> texture_;
+  /// The underlying BarelyGL::Texture object
+  std::unique_ptr<BarelyGL::Texture> texture_;
 };
 } // end of namespace BarelyEngine
 

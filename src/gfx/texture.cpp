@@ -8,7 +8,7 @@
 namespace BarelyEngine {
 Texture::Texture(const int width, const int height, const GLenum format, const void* const pixels)
 {
-  texture_ = std::make_unique<GL::Texture>(width, height, format, pixels);
+  texture_ = std::make_unique<BarelyGL::Texture>(width, height, format, pixels);
 }
 
 void Texture::bind() const
