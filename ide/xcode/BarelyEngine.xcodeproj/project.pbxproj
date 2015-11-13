@@ -55,7 +55,7 @@
 		66996A431AB56044009400C5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = include/barely_engine;
+			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
 				660628EE1BD039CF00563284 /* texture.h in CopyFiles */,
