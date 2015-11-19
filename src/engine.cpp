@@ -7,7 +7,7 @@
 #include <SDL2/SDL.h>
 #include "engine.h"
 #include "exception.h"
-#include "logger.h"
+#include "logging.h"
 
 using namespace std::literals;
 
@@ -16,6 +16,8 @@ std::vector<Logger*> Engine::loggers_;
 
 void Engine::init()
 {
+  BE_LOG("Initialising SDL...");
+
   if (SDL_Init(SDL_INIT_VIDEO) != 0)
   {
     throw Exception("SDL could not be initialised! ("s + SDL_GetError() + ")");
