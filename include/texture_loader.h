@@ -7,6 +7,7 @@
 #define BE_TEXTURE_LOADER_H
 
 #include <memory>
+#include <OpenGL/gltypes.h>
 #include "resource_loader.h"
 
 namespace BarelyEngine {

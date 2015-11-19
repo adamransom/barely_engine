@@ -9,7 +9,10 @@
 #include <OpenGL/gl3.h>
 #include "texture_loader.h"
 #include "texture.h"
+#include "pixel_data.h"
 #include "logging.h"
+
+using namespace std::literals;
 
 namespace BarelyEngine {
 std::unique_ptr<Texture> TextureLoader::load(const std::string& name)
@@ -22,17 +25,17 @@ std::unique_ptr<Texture> TextureLoader::load(const std::string& name)
 
   if (surface != nullptr)
   {
-    const auto converted_surface = SDL_ConvertSurfaceFormat(surface, SDL_PIXELFORMAT_RGB24, 0);
+    BE_LOG_DEBUG("Pixel format = "s + SDL_GetPixelFormatName(surface->format->format));
+
+    PixelData pixel_data{surface};
+    pixel_data.prepare();
+
+    auto texture =
+      std::make_unique<Texture>(surface->w, surface->h, pixel_data.format(), pixel_data.pixels());
     SDL_FreeSurface(surface);
+    loaded(path);
 
-    if (converted_surface != nullptr)
-    {
-      auto texture = std::make_unique<Texture>(surface->w, surface->h, GL_RGB, surface->pixels);
-      SDL_FreeSurface(converted_surface);
-      loaded(path);
-
-      return std::move(texture);
-    }
+    return texture;
   }
   else
   {

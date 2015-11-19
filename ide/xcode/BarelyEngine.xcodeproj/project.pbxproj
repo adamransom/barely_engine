@@ -14,6 +14,9 @@
 		660C978E1BF0047A00913558 /* logger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66996A1B1AB558C2009400C5 /* logger.h */; };
 		661028601BF6853F009714FA /* resource_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6610285F1BF6853F009714FA /* resource_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		6627654A1BF2B59A00624AA3 /* libBarelyEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66996A131AB55894009400C5 /* libBarelyEngine.a */; };
+		662CFBB11BF9261F00EB3552 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662CFBB01BF9261F00EB3552 /* OpenGL.framework */; };
+		663EE65D1BFA769D004C4E86 /* pixel_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663EE65C1BFA769D004C4E86 /* pixel_data.cpp */; settings = {ASSET_TAGS = (); }; };
+		663EE6651BFA7A8B004C4E86 /* pixel_data_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663EE6641BFA7A8B004C4E86 /* pixel_data_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		664000DD1BF69F3C009E502D /* logging.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6695527D1BEFF9ED00AE3199 /* logging.h */; };
 		665F40311BF3DBA300658EFF /* resource_manager_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665F40301BF3DBA300658EFF /* resource_manager_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		666658A81BF1505800B48F5B /* basic_logger_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666658A71BF1505800B48F5B /* basic_logger_tests.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -94,6 +97,10 @@
 		660628F51BD03A2200563284 /* BarelyGL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = BarelyGL.xcodeproj; path = ../../../barely_gl/ide/xcode/BarelyGL.xcodeproj; sourceTree = "<group>"; };
 		660628FD1BD03F5400563284 /* resource_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resource_manager.h; sourceTree = "<group>"; };
 		6610285F1BF6853F009714FA /* resource_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = resource_tests.cpp; sourceTree = "<group>"; };
+		662CFBB01BF9261F00EB3552 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		663EE65C1BFA769D004C4E86 /* pixel_data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pixel_data.cpp; sourceTree = "<group>"; };
+		663EE65E1BFA76AD004C4E86 /* pixel_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pixel_data.h; sourceTree = "<group>"; };
+		663EE6641BFA7A8B004C4E86 /* pixel_data_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pixel_data_tests.cpp; sourceTree = "<group>"; };
 		665F40301BF3DBA300658EFF /* resource_manager_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = resource_manager_tests.cpp; sourceTree = "<group>"; };
 		665F40321BF3F13500658EFF /* resource_loader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resource_loader.h; sourceTree = "<group>"; };
 		666658A71BF1505800B48F5B /* basic_logger_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = basic_logger_tests.cpp; sourceTree = "<group>"; };
@@ -130,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				662CFBB11BF9261F00EB3552 /* OpenGL.framework in Frameworks */,
 				6627654A1BF2B59A00624AA3 /* libBarelyEngine.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,11 +153,20 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		663EE6631BFA7A8B004C4E86 /* gfx */ = {
+			isa = PBXGroup;
+			children = (
+				663EE6641BFA7A8B004C4E86 /* pixel_data_tests.cpp */,
+			);
+			path = gfx;
+			sourceTree = "<group>";
+		};
 		6666A8331BC7146B00EB9C5F /* gfx */ = {
 			isa = PBXGroup;
 			children = (
 				660628EB1BD039B500563284 /* texture.h */,
 				6666A8341BC7146B00EB9C5F /* window.h */,
+				663EE65E1BFA76AD004C4E86 /* pixel_data.h */,
 			);
 			path = gfx;
 			sourceTree = "<group>";
@@ -159,6 +176,7 @@
 			children = (
 				660628EC1BD039C400563284 /* texture.cpp */,
 				6666A8361BC7147B00EB9C5F /* window.cpp */,
+				663EE65C1BFA769D004C4E86 /* pixel_data.cpp */,
 			);
 			path = gfx;
 			sourceTree = "<group>";
@@ -166,6 +184,7 @@
 		66996A0A1AB55894009400C5 = {
 			isa = PBXGroup;
 			children = (
+				662CFBB01BF9261F00EB3552 /* OpenGL.framework */,
 				660628F51BD03A2200563284 /* BarelyGL.xcodeproj */,
 				66996A1A1AB558C2009400C5 /* include */,
 				66996A1C1AB558C2009400C5 /* src */,
@@ -216,6 +235,7 @@
 		66AAF4F71BF140A300B54E43 /* tests */ = {
 			isa = PBXGroup;
 			children = (
+				663EE6631BFA7A8B004C4E86 /* gfx */,
 				66E54A041BF28BC600634445 /* fakeit.hpp */,
 				66AAF4F81BF140A300B54E43 /* catch.hpp */,
 				66AAF5041BF1413000B54E43 /* main.cpp */,
@@ -326,6 +346,7 @@
 				6666A8371BC7147B00EB9C5F /* window.cpp in Sources */,
 				66B7E2DB1BF5436D0079D5B1 /* texture_loader.cpp in Sources */,
 				66E54A091BF2AA2D00634445 /* basic_logger.cpp in Sources */,
+				663EE65D1BFA769D004C4E86 /* pixel_data.cpp in Sources */,
 				660628ED1BD039C400563284 /* texture.cpp in Sources */,
 				6666A82B1BC6FCEE00EB9C5F /* engine.cpp in Sources */,
 			);
@@ -339,6 +360,7 @@
 				66AAF5071BF143EE00B54E43 /* engine_tests.cpp in Sources */,
 				666658A81BF1505800B48F5B /* basic_logger_tests.cpp in Sources */,
 				665F40311BF3DBA300658EFF /* resource_manager_tests.cpp in Sources */,
+				663EE6651BFA7A8B004C4E86 /* pixel_data_tests.cpp in Sources */,
 				661028601BF6853F009714FA /* resource_tests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +500,11 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
 				OTHER_LDFLAGS = (
 					"-I/usr/local/include/SDL2",
 					"-L/usr/local/lib",
@@ -492,6 +519,11 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				GCC_NO_COMMON_BLOCKS = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
 				OTHER_LDFLAGS = (
 					"-I/usr/local/include/SDL2",
 					"-L/usr/local/lib",
