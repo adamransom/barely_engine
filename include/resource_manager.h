@@ -23,40 +23,70 @@ namespace BarelyEngine {
  * manager, reference counting etc) if needed, without needing to change too
  * much client code.
  */
-template <typename T>
+template <typename T, typename L>
 class ResourceManager
 {
 public:
   /**
-   * @brief Construct a resource manager
+   * @struct LoadState
+   * @brief Holds the state used when initially loading a resource
    *
-   * @param loader the resource loader to be used for loading the resources
+   * It's used to reload a resource by name after loading a resource using a
+   * filename and options.
    */
-  ResourceManager(ResourceLoader<T>* loader)
-    : loader_(loader) {};
+  struct LoadState
+  {
+    /// The filename for the resource
+    std::string filename;
+    /// The options used to load the resource
+    LoaderOptions<L> options;
+  };
 
   /**
-  * @brief Loads the specified resource with type T
+   * @brief Construct a resource manager, creating its own loader with default
+   * construction
+   */
+  ResourceManager()
+    : loader_(std::make_shared<L>()) {};
+
+  /**
+   * @brief Construct a resource manager with a loader
+   *
+   * @param loader the resource loader used to load resources
+   */
+  ResourceManager(std::shared_ptr<L> loader)
+    : loader_(std::move(loader)) {};
+
+  /**
+  * @brief Loads the specified resource with type T by filename
   *
-  * This is more of a convenience method, as its basically the reverse of the
-  * `get` method. It's here just so you can specifically state you want to load
-  * the resource (for pre-loading). You could pre-load with `get` also, but it's
-  * not as obvious with that name (and why you aren't using the return value).
-  *
-  * @param name the file name of the resource to load
+  * @param filename the filename of the resource to load
   *
   * @return a handle to the resource requested or a null handle if the load
   *         fails
   */
-  const Resource<T> load(const std::string& name);
+  const Resource<T> load(const std::string& filename);
 
   /**
-   * @brief Gets the specified resource with type T or loads it if not found
+  * @brief Loads the specified resource with type T by filename with specific
+  * options and storing the resource under the specified name
+  *
+  * @param filename the filename of the resource to load
+  * @param name the name used to store the resource (and later reference by)
+  * @param ...options the options used to load this resource
+  *
+  * @return a handle to the resource requested or a null handle if the load
+  *         fails
+  */
+  template <typename... Args>
+  const Resource<T> load(const std::string& filename, const std::string& name, Args... options);
+
+  /**
+   * @brief Gets the specified resource with type T
    *
    * @param name the file name of the resource to get
    *
-   * @return a handle to the resource requested or a null handle if the load
-   *         fails
+   * @return a handle to the resource requested or a null handle if not found
    */
   const Resource<T> get(const std::string& name);
 
@@ -70,7 +100,7 @@ public:
   const T* get(const Resource<T>& resource) const;
 
   /**
-   * @brief Reload all resources, using the ResourceLoader for each
+   * @brief Reload all resources
    */
   void reload();
 
@@ -98,20 +128,35 @@ private:
    *         fails
    */
   const Resource<T> force_load(const std::string& name);
+
+  /**
+   * @brief Saves the loading state for a particular resource
+   *
+   * @param name the name of the resource
+   * @param filename the filename used to load the resource
+   * @param ...options the options used to load the resource
+   */
+  template <typename... Args>
+  void save_state(const std::string& name, const std::string& filename, Args... options);
+
   /// Resource loader for the manager
-  ResourceLoader<T>* loader_;
+  std::shared_ptr<L> loader_;
   /// Hash of resources by their names
   std::unordered_map<std::string, std::unique_ptr<T>> resources_;
+  /// Hash of states used to load resources initially
+  std::unordered_map<std::string, LoadState> load_states_;
 };
 
-template <typename T>
-const Resource<T> ResourceManager<T>::load(const std::string& name)
+template <typename T, typename L>
+const Resource<T> ResourceManager<T, L>::load(const std::string& filename)
 {
-  return get(name);
+  return load(filename, filename);
 }
 
-template <typename T>
-const Resource<T> ResourceManager<T>::get(const std::string& name)
+template <typename T, typename L>
+template <typename... Args>
+const Resource<T> ResourceManager<T, L>::load(const std::string& filename, const std::string& name,
+                                              Args... options)
 {
   const auto search = resources_.find(name);
 
@@ -121,7 +166,24 @@ const Resource<T> ResourceManager<T>::get(const std::string& name)
   }
   else
   {
+    save_state(name, filename, options...);
     return force_load(name);
+  }
+}
+
+template <typename T, typename L>
+const Resource<T> ResourceManager<T, L>::get(const std::string& name)
+{
+  const auto search = resources_.find(name);
+
+  if (search != resources_.end())
+  {
+    return Resource<T>(name);
+  }
+  else
+  {
+    // Null resource
+    return Resource<T>();
   }
 }
 
@@ -131,12 +193,12 @@ const Resource<T> ResourceManager<T>::get(const std::string& name)
  * by using an int for the handle key and having that as an index into an array.
  * This would most likely be done in a handle manager of some sort. TODO Add
  * this ;)
- * 
+ *
  * The function above is fine with an unordered_map as that won't be called
  * for each render frame.
  */
-template <typename T>
-const T* ResourceManager<T>::get(const Resource<T>& resource) const
+template <typename T, typename L>
+const T* ResourceManager<T, L>::get(const Resource<T>& resource) const
 {
   const auto search = resources_.find(resource.id());
 
@@ -150,18 +212,19 @@ const T* ResourceManager<T>::get(const Resource<T>& resource) const
   }
 }
 
-template <typename T>
-void ResourceManager<T>::reload()
+template <typename T, typename L>
+void ResourceManager<T, L>::reload()
 {
   BE_LOG("Reloading all resources...");
+
   for (const auto& resource : resources_)
   {
     force_load(resource.first);
   }
 }
 
-template <typename T>
-void ResourceManager<T>::reload(const std::string& name)
+template <typename T, typename L>
+void ResourceManager<T, L>::reload(const std::string& name)
 {
   BE_LOG("Reloading resource '" + name + "'...");
   force_load(name);
@@ -172,23 +235,39 @@ void ResourceManager<T>::reload(const std::string& name)
 //        Private Methods
 // =============================
 //
-
-template <typename T>
-const Resource<T> ResourceManager<T>::force_load(const std::string& name)
+template <typename T, typename L>
+const Resource<T> ResourceManager<T, L>::force_load(const std::string& name)
 {
   if (!name.empty())
   {
-    auto resource = loader_->load(name);
+    const auto search = load_states_.find(name);
 
-    if (resource != nullptr)
+    if (search != load_states_.end())
     {
-      resources_[name] = std::move(resource);
-      return Resource<T>(name);
+      auto resource = loader_->load(search->second.filename, search->second.options);
+
+      if (resource != nullptr)
+      {
+        resources_[name] = std::move(resource);
+        return Resource<T>(name);
+      }
+    }
+    else
+    {
+      BE_LOG_WARN("Tried to load resource" + name + " without load state!");
     }
   }
 
   // Null resource
   return Resource<T>();
+}
+
+template <typename T, typename L>
+template <typename... Args>
+void ResourceManager<T, L>::save_state(const std::string& name, const std::string& filename,
+                                       Args... options)
+{
+  load_states_[name] = {filename, LoaderOptions<L>{options...}};
 }
 } // end of namespace BarelyEngine
 

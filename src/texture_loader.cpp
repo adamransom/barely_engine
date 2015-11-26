@@ -15,9 +15,10 @@
 using namespace std::literals;
 
 namespace BarelyEngine {
-std::unique_ptr<Texture> TextureLoader::load(const std::string& name)
+std::unique_ptr<Texture> TextureLoader::load(const std::string& filename,
+                                             const LoaderOptions<TextureLoader>& /* options */)
 {
-  const auto path = "resources/textures/" + name;
+  const auto path = "resources/textures/" + filename;
 
   loading(path);
 

@@ -17,7 +17,6 @@
 		662CFBB11BF9261F00EB3552 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662CFBB01BF9261F00EB3552 /* OpenGL.framework */; };
 		663EE65D1BFA769D004C4E86 /* pixel_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663EE65C1BFA769D004C4E86 /* pixel_data.cpp */; settings = {ASSET_TAGS = (); }; };
 		663EE6651BFA7A8B004C4E86 /* pixel_data_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663EE6641BFA7A8B004C4E86 /* pixel_data_tests.cpp */; settings = {ASSET_TAGS = (); }; };
-		664000DD1BF69F3C009E502D /* logging.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6695527D1BEFF9ED00AE3199 /* logging.h */; };
 		664000E41BF6A046009E502D /* vertex_batcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 664000E11BF6A046009E502D /* vertex_batcher.cpp */; settings = {ASSET_TAGS = (); }; };
 		664000E51BF6A046009E502D /* color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 664000E21BF6A046009E502D /* color.cpp */; settings = {ASSET_TAGS = (); }; };
 		664000E61BF6A046009E502D /* textured_quad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 664000E31BF6A046009E502D /* textured_quad.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -37,8 +36,9 @@
 		66B447301BFE7DB100BDB03D /* color.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 664000E01BF6A035009E502D /* color.h */; };
 		66B7E2DB1BF5436D0079D5B1 /* texture_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66B7E2DA1BF5436D0079D5B1 /* texture_loader.cpp */; settings = {ASSET_TAGS = (); }; };
 		66B7E2DD1BF54AEB0079D5B1 /* resource_loader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665F40321BF3F13500658EFF /* resource_loader.h */; };
-		66B7E2DE1BF54AF10079D5B1 /* texture_loader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66B7E2DC1BF5437C0079D5B1 /* texture_loader.h */; };
 		66B7E2DF1BF54AF30079D5B1 /* resource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66B7E2D91BF523590079D5B1 /* resource.h */; };
+		66C8FADC1C04FBCE0084DA80 /* texture_loader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66C8FADB1C04F96B0084DA80 /* texture_loader.h */; };
+		66C8FADE1C052AC60084DA80 /* logging.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6695527D1BEFF9ED00AE3199 /* logging.h */; };
 		66D938081BFFDC8900268ADC /* render_element.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66D938041BFFA23600268ADC /* render_element.h */; };
 		66E54A091BF2AA2D00634445 /* basic_logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66E54A081BF2AA2D00634445 /* basic_logger.cpp */; settings = {ASSET_TAGS = (); }; };
 		66E54A0A1BF2AB3300634445 /* basic_logger.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66E54A071BF2AA1000634445 /* basic_logger.h */; };
@@ -83,13 +83,13 @@
 				66B7E2DD1BF54AEB0079D5B1 /* resource_loader.h in CopyFiles */,
 				66D938081BFFDC8900268ADC /* render_element.h in CopyFiles */,
 				66B7E2DF1BF54AF30079D5B1 /* resource.h in CopyFiles */,
-				664000DD1BF69F3C009E502D /* logging.h in CopyFiles */,
-				66B7E2DE1BF54AF10079D5B1 /* texture_loader.h in CopyFiles */,
 				6666A82C1BC6FCF400EB9C5F /* engine.h in CopyFiles */,
 				660C978E1BF0047A00913558 /* logger.h in CopyFiles */,
+				66C8FADE1C052AC60084DA80 /* logging.h in CopyFiles */,
 				66E54A0A1BF2AB3300634445 /* basic_logger.h in CopyFiles */,
 				66B4472E1BFE7DAD00BDB03D /* vertex_batcher.h in CopyFiles */,
 				66B4472F1BFE7DAF00BDB03D /* textured_quad.h in CopyFiles */,
+				66C8FADC1C04FBCE0084DA80 /* texture_loader.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +139,7 @@
 		66AAF5061BF143EE00B54E43 /* engine_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = engine_tests.cpp; sourceTree = "<group>"; };
 		66B7E2D91BF523590079D5B1 /* resource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = resource.h; sourceTree = "<group>"; };
 		66B7E2DA1BF5436D0079D5B1 /* texture_loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = texture_loader.cpp; sourceTree = "<group>"; };
-		66B7E2DC1BF5437C0079D5B1 /* texture_loader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = texture_loader.h; sourceTree = "<group>"; };
+		66C8FADB1C04F96B0084DA80 /* texture_loader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = texture_loader.h; sourceTree = "<group>"; };
 		66D938041BFFA23600268ADC /* render_element.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = render_element.h; sourceTree = "<group>"; };
 		66E54A041BF28BC600634445 /* fakeit.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = fakeit.hpp; sourceTree = "<group>"; };
 		66E54A071BF2AA1000634445 /* basic_logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basic_logger.h; sourceTree = "<group>"; };
@@ -243,9 +243,9 @@
 				6666A82F1BC7022F00EB9C5F /* exception.h */,
 				6666A8291BC6FCE600EB9C5F /* engine.h */,
 				66E54A071BF2AA1000634445 /* basic_logger.h */,
+				66C8FADB1C04F96B0084DA80 /* texture_loader.h */,
 				66996A1B1AB558C2009400C5 /* logger.h */,
 				66B7E2D91BF523590079D5B1 /* resource.h */,
-				66B7E2DC1BF5437C0079D5B1 /* texture_loader.h */,
 			);
 			name = include;
 			path = ../../include;

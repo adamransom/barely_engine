@@ -11,129 +11,208 @@ using namespace BarelyEngine;
 using namespace fakeit;
 
 /**
- * Mock Resource
+ * Mock Resource, Loader and Options
  */
 struct MockResource {};
+class MockResourceLoader : public ResourceLoader<MockResource, MockResourceLoader> {};
+template<> struct LoaderOptions<MockResourceLoader> { int size; };
+using MockLoaderOptions = LoaderOptions<MockResourceLoader>;
+
+/// Used for FakeIt argument matchers, to make sure we are passing the correct
+/// options to the loader
+bool operator==(const MockLoaderOptions& a, const MockLoaderOptions& b) { return a.size == b.size; }
+/// Used to make sure the shared pointer doesn't delete the ResourceLoader
+struct do_not_delete { void operator()(MockResourceLoader* p) const { } };
 
 TEST_CASE("Resources", "[resource_manager]")
 {
-  Mock<ResourceLoader<MockResource>> mock_loader;
-  ResourceManager<MockResource> manager{&mock_loader.get()};
+  Mock<MockResourceLoader> mock_loader;
+  // It's safe (and necessary) for the shared pointer NOT to do the deleting,
+  // because we know the Mock is managing the lifetime of the ResourceLoader.
+  std::shared_ptr<MockResourceLoader> mock_ptr{ &mock_loader.get(), do_not_delete() };
+  ResourceManager<MockResource, MockResourceLoader> manager{mock_ptr};
 
   When(Method(mock_loader, load))
-    .AlwaysDo([](const std::string& name){ return std::make_unique<MockResource>(); });
+    .AlwaysDo([](const std::string& filename, const LoaderOptions<MockResourceLoader>& options){
+      return std::make_unique<MockResource>();
+    });
 
   SECTION("Loading")
   {
-    SECTION("Adds to resource list")
+    SECTION("Args: filename")
     {
-      manager.load("test_resource");
+      SECTION("Adds to resource list")
+      {
+        manager.load("test_resource");
 
-      REQUIRE(manager.count() == 1);
+        REQUIRE(manager.count() == 1);
+      }
+
+      SECTION("Calls loaders `load` method once")
+      {
+        manager.load("test_resource");
+
+        Verify(Method(mock_loader, load).Using("test_resource", _)).Once();
+      }
+
+      SECTION("Doesn't load same resource twice")
+      {
+        manager.load("test_resource");
+        manager.load("test_resource");
+
+        Verify(Method(mock_loader, load)).Once();
+      }
+
+      SECTION("Returns valid handle")
+      {
+        auto handle = manager.load("test_resource");
+
+        REQUIRE(handle.is_null() == false);
+      }
+
+      SECTION("Returns null handle if load fails")
+      {
+        When(Method(mock_loader, load))
+          .Do([](const std::string& name, const MockLoaderOptions& options){ return nullptr; });
+
+        auto handle = manager.load("test_resource");
+
+        REQUIRE(handle.is_null());
+      }
+
+      SECTION("Doesn't load for empty name")
+      {
+        auto handle = manager.load("");
+
+        Verify(Method(mock_loader, load)).Never();
+      }
+
+      SECTION("Returns null handle for empty name")
+      {
+        auto handle = manager.load("");
+
+        REQUIRE(handle.is_null());
+      }
     }
 
-    SECTION("Calls loaders `load` method once")
+    SECTION("Args: filename, name")
     {
-      manager.load("test_resource");
+      SECTION("Calls loaders `load` with filename, not name, once")
+      {
+        manager.load("test_resource", "test_name");
 
-      Verify(Method(mock_loader, load).Using("test_resource")).Once();
+        Verify(Method(mock_loader, load).Using("test_resource", _)).Once();
+      }
     }
 
-    SECTION("Doesn't load same resource twice")
+    SECTION("Args: filename, name, options...")
     {
-      manager.load("test_resource");
-      manager.load("test_resource");
+      SECTION("Calls loaders `load` with LoaderOptions filled")
+      {
+        manager.load("test_resource", "test_name", 1);
 
-      Verify(Method(mock_loader, load)).Once();
-    }
-
-    SECTION("Returns null handle if load fails")
-    {
-      When(Method(mock_loader, load))
-        .Do([](const std::string& name){ return nullptr; });
-
-      auto handle = manager.load("test_resource");
-
-      REQUIRE(handle.is_null());
-    }
-
-    SECTION("Doesn't load for empty name")
-    {
-      auto handle = manager.load("");
-
-      Verify(Method(mock_loader, load)).Never();
-    }
-
-    SECTION("Returns null handle for empty name")
-    {
-      auto handle = manager.load("");
-
-      REQUIRE(handle.is_null());
+        Verify(Method(mock_loader, load).Using("test_resource", MockLoaderOptions{1})).Once();
+      }
     }
   }
 
   SECTION("Reloading")
   {
-    SECTION("Calls `load` for each loaded resource")
+    SECTION("Load args: filename")
     {
-      manager.load("test_resource_1");
-      manager.load("test_resource_2");
-      manager.reload();
+      SECTION("Calls `load` for each resource")
+      {
+        manager.load("test_resource_1");
+        manager.load("test_resource_2");
+        manager.reload();
 
-      Verify(Method(mock_loader, load).Using("test_resource_1")).Twice();
-      Verify(Method(mock_loader, load).Using("test_resource_2")).Twice();
+        Verify(Method(mock_loader, load).Using("test_resource_1", _)).Twice();
+        Verify(Method(mock_loader, load).Using("test_resource_2", _)).Twice();
+      }
+
+      SECTION("Calls `load` only for requested resource when name specified")
+      {
+        manager.load("test_resource_1");
+        manager.load("test_resource_2");
+        manager.reload("test_resource_1");
+
+        Verify(Method(mock_loader, load).Using("test_resource_1", _)).Twice();
+        Verify(Method(mock_loader, load).Using("test_resource_2", _)).Once();
+      }
     }
 
-    SECTION("Calls `load` only for requested resource when name specified")
+    SECTION("Load args: filename, name")
     {
-      manager.load("test_resource_1");
-      manager.load("test_resource_2");
-      manager.reload("test_resource_1");
+      SECTION("Calls `load` for each resource with original filename")
+      {
+        manager.load("test_resource_1", "test_name_1");
+        manager.load("test_resource_2", "test_name_2");
+        manager.reload();
 
-      Verify(Method(mock_loader, load).Using("test_resource_1")).Twice();
-      Verify(Method(mock_loader, load).Using("test_resource_2")).Once();
+        Verify(Method(mock_loader, load).Using("test_resource_1", _)).Twice();
+        Verify(Method(mock_loader, load).Using("test_resource_2", _)).Twice();
+      }
+
+      SECTION("Calls `load` for requested resource with original filename")
+      {
+        manager.load("test_resource", "test_name");
+        manager.reload("test_name");
+
+        Verify(Method(mock_loader, load).Using("test_resource", _)).Twice();
+      }
+    }
+
+    SECTION("Load args: filename, name, options...")
+    {
+      SECTION("Calls `load` for each resource with original filename and options")
+      {
+        manager.load("test_resource_1", "test_name_1", 1);
+        manager.load("test_resource_2", "test_name_2", 2);
+        manager.reload();
+
+        Verify(Method(mock_loader, load).Using("test_resource_1", MockLoaderOptions{1})).Twice();
+        Verify(Method(mock_loader, load).Using("test_resource_2", MockLoaderOptions{2})).Twice();
+      }
+
+      SECTION("Calls `load` for requested resource with original filename and options")
+      {
+        manager.load("test_resource", "test_name", 1);
+        manager.reload("test_name");
+
+        Verify(Method(mock_loader, load).Using("test_resource", MockLoaderOptions{1})).Twice();
+      }
     }
   }
 
   SECTION("Retrieving Handle")
   {
-    SECTION("Gets the correct handle")
+    SECTION("Load args: filename")
     {
-      const auto loaded = manager.load("test_resource");
-      const auto retrieved = manager.get("test_resource");
+      SECTION("Gets the correct handle")
+      {
+        const auto loaded = manager.load("test_resource");
+        const auto retrieved = manager.get("test_resource");
 
-      REQUIRE(loaded == retrieved);
+        REQUIRE(loaded == retrieved);
+      }
+
+      SECTION("Returns null handle if not loaded")
+      {
+        const auto retrieved = manager.get("nope");
+
+        REQUIRE(retrieved.is_null());
+      }
     }
 
-    SECTION("Loads resource if not loaded yet")
+    SECTION("Load args: filename, name")
     {
-      manager.get("new_resource");
+      SECTION("Gets the correct handle based on name, not filename")
+      {
+        const auto loaded = manager.load("test_resource", "test_name");
+        const auto retrieved = manager.get("test_name");
 
-      Verify(Method(mock_loader, load)).Once();
-    }
-
-    SECTION("Returns null handle if load fails")
-    {
-      When(Method(mock_loader, load))
-      .Do([](const std::string& name){ return nullptr; });
-
-      const auto retrieved = manager.get("nope");
-
-      REQUIRE(retrieved.is_null());
-    }
-
-    SECTION("Returns null handle for empty name")
-    {
-      const auto retrieved = manager.get("");
-
-      REQUIRE(retrieved.is_null());
-    }
-
-    SECTION("Doesn't load for empty name")
-    {
-      auto handle = manager.get("");
-
-      Verify(Method(mock_loader, load)).Never();
+        REQUIRE(loaded == retrieved);
+      }
     }
   }
 

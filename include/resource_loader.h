@@ -9,23 +9,27 @@
 #include "logging.h"
 
 namespace BarelyEngine {
+template <typename L>
+struct LoaderOptions;
 /**
  * @class ResourceLoader
  * @brief An abstract class that is used by resource managers to load their
  *        resources
  */
-template <typename T>
+template <typename T, typename L>
 class ResourceLoader
 {
 public:
   /**
    * @brief Loads a resource from the file system
    *
-   * @param name the name of the resource to load
+   * @param filename the filename of the resource to load
+   * @param options the options used to load the resource
    *
    * @return a unique_ptr to the resource
    */
-  virtual std::unique_ptr<T> load(const std::string& name) = 0;
+  virtual std::unique_ptr<T> load(const std::string& filename, const LoaderOptions<L>& options) = 0;
+
 protected:
   /**
    * @brief Callback when the resource is loading (for logging)
@@ -50,20 +54,20 @@ protected:
   void failed(const std::string& path, const std::string& message);
 };
 
-template <typename T>
-void ResourceLoader<T>::loading(const std::string& path)
+template <typename T, typename L>
+void ResourceLoader<T, L>::loading(const std::string& path)
 {
   BE_LOG_DEBUG("Loading resource '" + path + "'...");
 }
 
-template <typename T>
-void ResourceLoader<T>::loaded(const std::string& path)
+template <typename T, typename L>
+void ResourceLoader<T, L>::loaded(const std::string& path)
 {
   BE_LOG("Loaded resource '" + path + "'");
 }
 
-template <typename T>
-void ResourceLoader<T>::failed(const std::string& path, const std::string& message)
+template <typename T, typename L>
+void ResourceLoader<T, L>::failed(const std::string& path, const std::string& message)
 {
   BE_LOG_WARN("Failed to load resource '" + path + "' (" + message + ")");
 }
