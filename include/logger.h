@@ -7,6 +7,7 @@
 #define BE_LOGGER_H
 
 #include <iostream>
+#include <string>
 
 namespace BarelyEngine {
 /**

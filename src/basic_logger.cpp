@@ -17,7 +17,7 @@ void BasicLogger::log(const LogLevel level, const std::string& message, const st
 {
   // Only show DEBUG_ONLY messages when running in debug mode
 #ifndef DEBUG
-  if (level == Level::DEBUG_ONLY) return;
+  if (level == LogLevel::DEBUG_ONLY) return;
 #endif
 
   std::string level_tag;
