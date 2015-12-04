@@ -7,6 +7,7 @@
 #define BE_EXCEPTION_H
 
 #include <stdexcept>
+#include <string>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ namespace BarelyEngine {
 class Exception : public runtime_error
 {
 public:
-  Exception(const string& what_arg) : runtime_error(what_arg) {};
+  Exception(const string what_arg) : runtime_error(what_arg) {};
 };
 } // end of namespace BarelyEngine
 
