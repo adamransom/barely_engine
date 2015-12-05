@@ -19,19 +19,56 @@ class Texture
 {
 public:
   /**
-  * @brief Construct a texture
-  *
-  * @param width width of the texture
-  * @param height height of the texture
-  * @param format pixel format of the texture
-  * @param pixels raw pixel data of the texture
-  */
+   * @brief Construct a texture
+   *
+   * @param width width of the texture
+   * @param height height of the texture
+   * @param format pixel format of the data
+   * @param internal_format format the texture should be stored as
+   * @param unpack_alignment the unpack alignment OpenGL uses (usually 4)
+   * @param pixels raw pixel data of the texture
+   */
+  Texture(int width, int height, GLenum format, GLenum internal_format, uint8_t unpack_alignment,
+          const void* pixels);
+
+  /**
+   * @brief Construct a texture
+   *
+   * @param width width of the texture
+   * @param height height of the texture
+   * @param format pixel format of the data
+   * @param internal_format format the texture should be stored as
+   * @param pixels raw pixel data of the texture
+   */
+  Texture(int width, int height, GLenum format, GLenum internal_format, const void* pixels);
+
+  /**
+   * @brief Construct a texture
+   *
+   * @param width width of the texture
+   * @param height height of the texture
+   * @param format pixel format of the data
+   * @param pixels raw pixel data of the texture
+   */
   Texture(int width, int height, GLenum format, const void* pixels);
 
   /**
    * @brief Bind the texture for the next set of draw calls
    */
   void bind() const;
+
+  /**
+   * @brief Uploads raw data to part of the texture
+   *
+   * Note: Must call `bind()` first!
+   *
+   * @param x_offset the x offset into texture
+   * @param y_offset the y offset into texture
+   * @param width the width of the data being uploaded
+   * @param width the height of the data being uploaded
+   * @param data the raw pixel data to upload
+   */
+  void sub_data(int x_offset, int y_offset, int width, int height, const void* data);
 
   /**
    * @brief Unbinds the texture
