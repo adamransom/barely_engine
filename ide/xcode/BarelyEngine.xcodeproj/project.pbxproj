@@ -16,6 +16,7 @@
 		660E4E8B1C0B69CC009602AC /* library.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 660E4E851C0B6724009602AC /* library.h */; };
 		660E4E8E1C0B6BFE009602AC /* face.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 660E4E8D1C0B6BFE009602AC /* face.cpp */; settings = {ASSET_TAGS = (); }; };
 		661028601BF6853F009714FA /* resource_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6610285F1BF6853F009714FA /* resource_tests.cpp */; settings = {ASSET_TAGS = (); }; };
+		66234EE21C133CEB009BA8DE /* timer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66234EDF1C133A84009BA8DE /* timer.h */; };
 		6627654A1BF2B59A00624AA3 /* libBarelyEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66996A131AB55894009400C5 /* libBarelyEngine.a */; };
 		662CFBB11BF9261F00EB3552 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662CFBB01BF9261F00EB3552 /* OpenGL.framework */; };
 		663EE65D1BFA769D004C4E86 /* pixel_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663EE65C1BFA769D004C4E86 /* pixel_data.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -39,6 +40,7 @@
 		66A354C61C0E138F000627FC /* face.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 660E4E8C1C0B6BF4009602AC /* face.h */; };
 		66A354CC1C0E63FF000627FC /* bitmap.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A354CB1C0E63E5000627FC /* bitmap.h */; };
 		66A354CF1C0E6629000627FC /* bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A354CE1C0E6629000627FC /* bitmap.cpp */; settings = {ASSET_TAGS = (); }; };
+		66A42EA31C14CE7B00441C87 /* timer_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A42EA11C14CE4E00441C87 /* timer_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		66AAF5051BF1413000B54E43 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AAF5041BF1413000B54E43 /* main.cpp */; settings = {ASSET_TAGS = (); }; };
 		66AAF5071BF143EE00B54E43 /* engine_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66AAF5061BF143EE00B54E43 /* engine_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		66B4472E1BFE7DAD00BDB03D /* vertex_batcher.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 664000DE1BF6A035009E502D /* vertex_batcher.h */; };
@@ -114,6 +116,7 @@
 				6666A82C1BC6FCF400EB9C5F /* engine.h in CopyFiles */,
 				660C978E1BF0047A00913558 /* logger.h in CopyFiles */,
 				66C8FADE1C052AC60084DA80 /* logging.h in CopyFiles */,
+				66234EE21C133CEB009BA8DE /* timer.h in CopyFiles */,
 				665F2BCE1C026E9F0076ADBC /* font.h in CopyFiles */,
 				66E54A0A1BF2AB3300634445 /* basic_logger.h in CopyFiles */,
 				66B4472E1BFE7DAD00BDB03D /* vertex_batcher.h in CopyFiles */,
@@ -145,6 +148,7 @@
 		660E4E8C1C0B6BF4009602AC /* face.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = face.h; sourceTree = "<group>"; };
 		660E4E8D1C0B6BFE009602AC /* face.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = face.cpp; sourceTree = "<group>"; };
 		6610285F1BF6853F009714FA /* resource_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = resource_tests.cpp; sourceTree = "<group>"; };
+		66234EDF1C133A84009BA8DE /* timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
 		662CFBB01BF9261F00EB3552 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		663EE65C1BFA769D004C4E86 /* pixel_data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pixel_data.cpp; sourceTree = "<group>"; };
 		663EE65E1BFA76AD004C4E86 /* pixel_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pixel_data.h; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 		66996A1B1AB558C2009400C5 /* logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logger.h; sourceTree = "<group>"; };
 		66A354CB1C0E63E5000627FC /* bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitmap.h; sourceTree = "<group>"; };
 		66A354CE1C0E6629000627FC /* bitmap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bitmap.cpp; sourceTree = "<group>"; };
+		66A42EA11C14CE4E00441C87 /* timer_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = timer_tests.cpp; sourceTree = "<group>"; };
 		66AAF4F81BF140A300B54E43 /* catch.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = catch.hpp; sourceTree = "<group>"; };
 		66AAF4FD1BF140C600B54E43 /* BarelyEngineTests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BarelyEngineTests; sourceTree = BUILT_PRODUCTS_DIR; };
 		66AAF5041BF1413000B54E43 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -319,6 +324,7 @@
 				66C8FADB1C04F96B0084DA80 /* texture_loader.h */,
 				66996A1B1AB558C2009400C5 /* logger.h */,
 				66B7E2D91BF523590079D5B1 /* resource.h */,
+				66234EDF1C133A84009BA8DE /* timer.h */,
 			);
 			name = include;
 			path = ../../include;
@@ -349,6 +355,7 @@
 				666658A71BF1505800B48F5B /* basic_logger_tests.cpp */,
 				665F40301BF3DBA300658EFF /* resource_manager_tests.cpp */,
 				6610285F1BF6853F009714FA /* resource_tests.cpp */,
+				66A42EA11C14CE4E00441C87 /* timer_tests.cpp */,
 			);
 			name = tests;
 			path = ../../tests;
@@ -474,6 +481,7 @@
 			files = (
 				66AAF5051BF1413000B54E43 /* main.cpp in Sources */,
 				665F2BCA1C0221B60076ADBC /* textured_quad_tests.cpp in Sources */,
+				66A42EA31C14CE7B00441C87 /* timer_tests.cpp in Sources */,
 				66AAF5071BF143EE00B54E43 /* engine_tests.cpp in Sources */,
 				666658A81BF1505800B48F5B /* basic_logger_tests.cpp in Sources */,
 				665F40311BF3DBA300658EFF /* resource_manager_tests.cpp in Sources */,
