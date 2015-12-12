@@ -19,6 +19,7 @@
 		66234EE21C133CEB009BA8DE /* timer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66234EDF1C133A84009BA8DE /* timer.h */; };
 		6627654A1BF2B59A00624AA3 /* libBarelyEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 66996A131AB55894009400C5 /* libBarelyEngine.a */; };
 		662CFBB11BF9261F00EB3552 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 662CFBB01BF9261F00EB3552 /* OpenGL.framework */; };
+		663ACE491C24D89B00901837 /* pointer_hash.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 663ACE481C24D88400901837 /* pointer_hash.h */; };
 		663EE65D1BFA769D004C4E86 /* pixel_data.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663EE65C1BFA769D004C4E86 /* pixel_data.cpp */; settings = {ASSET_TAGS = (); }; };
 		663EE6651BFA7A8B004C4E86 /* pixel_data_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 663EE6641BFA7A8B004C4E86 /* pixel_data_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		664000E41BF6A046009E502D /* vertex_batcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 664000E11BF6A046009E502D /* vertex_batcher.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -30,6 +31,8 @@
 		665F2BCE1C026E9F0076ADBC /* font.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 665F2BCB1C026AAE0076ADBC /* font.h */; };
 		665F2BD21C0280FC0076ADBC /* font_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665F2BD11C0280FC0076ADBC /* font_loader.cpp */; settings = {ASSET_TAGS = (); }; };
 		665F40311BF3DBA300658EFF /* resource_manager_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 665F40301BF3DBA300658EFF /* resource_manager_tests.cpp */; settings = {ASSET_TAGS = (); }; };
+		66626A671C177873002DE60E /* ring_buffer_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66626A661C177873002DE60E /* ring_buffer_tests.cpp */; settings = {ASSET_TAGS = (); }; };
+		66626A681C1778F8002DE60E /* ring_buffer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66626A651C176C5C002DE60E /* ring_buffer.h */; };
 		6666119A1C07B9F00014A629 /* glyph_metrics.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 666611991C07B7BE0014A629 /* glyph_metrics.h */; };
 		666658A81BF1505800B48F5B /* basic_logger_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 666658A71BF1505800B48F5B /* basic_logger_tests.cpp */; settings = {ASSET_TAGS = (); }; };
 		6666A82B1BC6FCEE00EB9C5F /* engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6666A82A1BC6FCEE00EB9C5F /* engine.cpp */; };
@@ -37,6 +40,10 @@
 		6666A8301BC7023400EB9C5F /* exception.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6666A82F1BC7022F00EB9C5F /* exception.h */; };
 		6666A8371BC7147B00EB9C5F /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6666A8361BC7147B00EB9C5F /* window.cpp */; };
 		6666A8391BC7150900EB9C5F /* window.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6666A8341BC7146B00EB9C5F /* window.h */; };
+		666C5E031C162A6500C37C3D /* profiling.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 666C5DFE1C16237200C37C3D /* profiling.h */; };
+		66774BA81C1C67CB00105B4B /* profiler_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66774BA71C1C67CB00105B4B /* profiler_tests.cpp */; settings = {ASSET_TAGS = (); }; };
+		66783FCE1C209F70008658BC /* frame_profiler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66783FCD1C209F70008658BC /* frame_profiler.cpp */; settings = {ASSET_TAGS = (); }; };
+		66783FCF1C20A173008658BC /* frame_profiler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66783FCC1C209127008658BC /* frame_profiler.h */; };
 		66A354C61C0E138F000627FC /* face.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 660E4E8C1C0B6BF4009602AC /* face.h */; };
 		66A354CC1C0E63FF000627FC /* bitmap.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 66A354CB1C0E63E5000627FC /* bitmap.h */; };
 		66A354CF1C0E6629000627FC /* bitmap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66A354CE1C0E6629000627FC /* bitmap.cpp */; settings = {ASSET_TAGS = (); }; };
@@ -107,6 +114,7 @@
 			files = (
 				66B447301BFE7DB100BDB03D /* color.h in CopyFiles */,
 				660628EE1BD039CF00563284 /* texture.h in CopyFiles */,
+				663ACE491C24D89B00901837 /* pointer_hash.h in CopyFiles */,
 				6666A8391BC7150900EB9C5F /* window.h in CopyFiles */,
 				6666A8301BC7023400EB9C5F /* exception.h in CopyFiles */,
 				660629001BD03FAF00563284 /* resource_manager.h in CopyFiles */,
@@ -115,15 +123,18 @@
 				66B7E2DF1BF54AF30079D5B1 /* resource.h in CopyFiles */,
 				6666A82C1BC6FCF400EB9C5F /* engine.h in CopyFiles */,
 				660C978E1BF0047A00913558 /* logger.h in CopyFiles */,
+				66783FCF1C20A173008658BC /* frame_profiler.h in CopyFiles */,
 				66C8FADE1C052AC60084DA80 /* logging.h in CopyFiles */,
 				66234EE21C133CEB009BA8DE /* timer.h in CopyFiles */,
 				665F2BCE1C026E9F0076ADBC /* font.h in CopyFiles */,
 				66E54A0A1BF2AB3300634445 /* basic_logger.h in CopyFiles */,
+				66626A681C1778F8002DE60E /* ring_buffer.h in CopyFiles */,
 				66B4472E1BFE7DAD00BDB03D /* vertex_batcher.h in CopyFiles */,
 				6666119A1C07B9F00014A629 /* glyph_metrics.h in CopyFiles */,
 				66B4472F1BFE7DAF00BDB03D /* textured_quad.h in CopyFiles */,
 				66C8FADD1C04FBD00084DA80 /* font_loader.h in CopyFiles */,
 				66C8FADC1C04FBCE0084DA80 /* texture_loader.h in CopyFiles */,
+				666C5E031C162A6500C37C3D /* profiling.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +161,7 @@
 		6610285F1BF6853F009714FA /* resource_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = resource_tests.cpp; sourceTree = "<group>"; };
 		66234EDF1C133A84009BA8DE /* timer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
 		662CFBB01BF9261F00EB3552 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		663ACE481C24D88400901837 /* pointer_hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pointer_hash.h; sourceTree = "<group>"; };
 		663EE65C1BFA769D004C4E86 /* pixel_data.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pixel_data.cpp; sourceTree = "<group>"; };
 		663EE65E1BFA76AD004C4E86 /* pixel_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pixel_data.h; sourceTree = "<group>"; };
 		663EE6641BFA7A8B004C4E86 /* pixel_data_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pixel_data_tests.cpp; sourceTree = "<group>"; };
@@ -166,6 +178,8 @@
 		665F2BD11C0280FC0076ADBC /* font_loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = font_loader.cpp; sourceTree = "<group>"; };
 		665F40301BF3DBA300658EFF /* resource_manager_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = resource_manager_tests.cpp; sourceTree = "<group>"; };
 		665F40321BF3F13500658EFF /* resource_loader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resource_loader.h; sourceTree = "<group>"; };
+		66626A651C176C5C002DE60E /* ring_buffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ring_buffer.h; sourceTree = "<group>"; };
+		66626A661C177873002DE60E /* ring_buffer_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ring_buffer_tests.cpp; sourceTree = "<group>"; };
 		666611991C07B7BE0014A629 /* glyph_metrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glyph_metrics.h; sourceTree = "<group>"; };
 		666658A71BF1505800B48F5B /* basic_logger_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = basic_logger_tests.cpp; sourceTree = "<group>"; };
 		6666A8291BC6FCE600EB9C5F /* engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
@@ -173,6 +187,10 @@
 		6666A82F1BC7022F00EB9C5F /* exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = exception.h; sourceTree = "<group>"; };
 		6666A8341BC7146B00EB9C5F /* window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = window.h; sourceTree = "<group>"; };
 		6666A8361BC7147B00EB9C5F /* window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = window.cpp; sourceTree = "<group>"; };
+		666C5DFE1C16237200C37C3D /* profiling.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = profiling.h; sourceTree = "<group>"; };
+		66774BA71C1C67CB00105B4B /* profiler_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = profiler_tests.cpp; sourceTree = "<group>"; };
+		66783FCC1C209127008658BC /* frame_profiler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = frame_profiler.h; sourceTree = "<group>"; };
+		66783FCD1C209F70008658BC /* frame_profiler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = frame_profiler.cpp; sourceTree = "<group>"; };
 		6695527D1BEFF9ED00AE3199 /* logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logging.h; sourceTree = "<group>"; };
 		66996A131AB55894009400C5 /* libBarelyEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBarelyEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		66996A1B1AB558C2009400C5 /* logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = logger.h; sourceTree = "<group>"; };
@@ -314,6 +332,7 @@
 			children = (
 				660E4E841C0B6716009602AC /* free_type */,
 				6666A8331BC7146B00EB9C5F /* gfx */,
+				663ACE481C24D88400901837 /* pointer_hash.h */,
 				6695527D1BEFF9ED00AE3199 /* logging.h */,
 				660628FD1BD03F5400563284 /* resource_manager.h */,
 				665F40321BF3F13500658EFF /* resource_loader.h */,
@@ -325,6 +344,9 @@
 				66996A1B1AB558C2009400C5 /* logger.h */,
 				66B7E2D91BF523590079D5B1 /* resource.h */,
 				66234EDF1C133A84009BA8DE /* timer.h */,
+				666C5DFE1C16237200C37C3D /* profiling.h */,
+				66626A651C176C5C002DE60E /* ring_buffer.h */,
+				66783FCC1C209127008658BC /* frame_profiler.h */,
 			);
 			name = include;
 			path = ../../include;
@@ -339,6 +361,7 @@
 				66E54A081BF2AA2D00634445 /* basic_logger.cpp */,
 				66B7E2DA1BF5436D0079D5B1 /* texture_loader.cpp */,
 				665F2BD11C0280FC0076ADBC /* font_loader.cpp */,
+				66783FCD1C209F70008658BC /* frame_profiler.cpp */,
 			);
 			name = src;
 			path = ../../src;
@@ -356,6 +379,8 @@
 				665F40301BF3DBA300658EFF /* resource_manager_tests.cpp */,
 				6610285F1BF6853F009714FA /* resource_tests.cpp */,
 				66A42EA11C14CE4E00441C87 /* timer_tests.cpp */,
+				66626A661C177873002DE60E /* ring_buffer_tests.cpp */,
+				66774BA71C1C67CB00105B4B /* profiler_tests.cpp */,
 			);
 			name = tests;
 			path = ../../tests;
@@ -467,6 +492,7 @@
 				664000E51BF6A046009E502D /* color.cpp in Sources */,
 				66A354CF1C0E6629000627FC /* bitmap.cpp in Sources */,
 				663EE65D1BFA769D004C4E86 /* pixel_data.cpp in Sources */,
+				66783FCE1C209F70008658BC /* frame_profiler.cpp in Sources */,
 				660628ED1BD039C400563284 /* texture.cpp in Sources */,
 				665F2BD21C0280FC0076ADBC /* font_loader.cpp in Sources */,
 				665F2BCD1C026ABE0076ADBC /* font.cpp in Sources */,
@@ -482,8 +508,10 @@
 				66AAF5051BF1413000B54E43 /* main.cpp in Sources */,
 				665F2BCA1C0221B60076ADBC /* textured_quad_tests.cpp in Sources */,
 				66A42EA31C14CE7B00441C87 /* timer_tests.cpp in Sources */,
+				66774BA81C1C67CB00105B4B /* profiler_tests.cpp in Sources */,
 				66AAF5071BF143EE00B54E43 /* engine_tests.cpp in Sources */,
 				666658A81BF1505800B48F5B /* basic_logger_tests.cpp in Sources */,
+				66626A671C177873002DE60E /* ring_buffer_tests.cpp in Sources */,
 				665F40311BF3DBA300658EFF /* resource_manager_tests.cpp in Sources */,
 				663EE6651BFA7A8B004C4E86 /* pixel_data_tests.cpp in Sources */,
 				665F2BC81C020D640076ADBC /* render_element_tests.cpp in Sources */,
