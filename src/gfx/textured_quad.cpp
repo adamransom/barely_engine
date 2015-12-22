@@ -7,11 +7,11 @@
 #include "texture.h"
 
 namespace BarelyEngine {
-const BarelyGL::VertexAttributeArray TexturedQuad::kAttributes_ =
+const BarelyGL::VertexAttributeArray TexturedQuad::kAttributes_(
 {
   BarelyGL::VertexAttribute::Position, BarelyGL::VertexAttribute::UV,
   BarelyGL::VertexAttribute::Color
-};
+});
 
 TexturedQuad::TexturedQuad(const float x, const float y, const float w, const float h,
                            const uint8_t layer, const uint8_t depth, const Texture* texture)
@@ -24,12 +24,7 @@ TexturedQuad::TexturedQuad(const float x, const float y, const float w, const fl
                            const Color color)
   : RenderElement(layer, depth, kAttributes_, texture)
 {
-  int values_per_vertex = 0;
-
-  for (const auto attribute : attributes())
-  {
-    values_per_vertex += attribute.size;
-  }
+  int values_per_vertex = kAttributes_.size();
 
   std::vector<float> vertices(kVerticesPerElement_ * values_per_vertex);
 
@@ -106,12 +101,7 @@ TexturedQuad::TexturedQuad(const float x, const float y, const float w, const fl
   const float texture_w = static_cast<float>(texture->width());
   const float texture_h = static_cast<float>(texture->height());
 
-  int values_per_vertex = 0;
-
-  for (const auto attribute : attributes())
-  {
-    values_per_vertex += attribute.size;
-  }
+  auto values_per_vertex = kAttributes_.size();
 
   std::vector<float> vertices(kVerticesPerElement_ * values_per_vertex);
 

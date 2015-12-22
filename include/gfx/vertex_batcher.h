@@ -85,9 +85,12 @@ private:
   /// The attributes to use when drawing the vertices
   BarelyGL::VertexAttributeArray attributes_;
   /// The vertex buffer object to be used for the vertices
-  BarelyGL::VertexBufferObject vbo_{GL_ARRAY_BUFFER, GL_STATIC_DRAW};
+  BarelyGL::VertexBufferObject vbo_{GL_ARRAY_BUFFER, GL_DYNAMIC_DRAW};
   /// The index buffer object to be used with the VBO (currently unused)
   BarelyGL::IndexBufferObject ibo_{GL_ELEMENT_ARRAY_BUFFER, GL_STATIC_DRAW};
+  /// The vertex array object which holds the state of the attribute array and
+  /// vertex buffer object
+  BarelyGL::VertexArrayObject vao_{attributes_, &vbo_};
   /// The maximum size of the vertices array
   size_t max_size_ = 0;
   /// The array of vertices to be drawn at once

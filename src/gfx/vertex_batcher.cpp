@@ -14,9 +14,22 @@ VertexBatcher::VertexBatcher(const GLuint draw_mode,
   : draw_mode_(draw_mode)
   , attributes_(std::move(attributes))
 {
-  max_size_ = attributes.size() * max_vertices;
+  max_size_ = attributes_.size() * max_vertices;
   vertices_.reserve(max_size_);
-  vbo_.set_attributes(attributes);
+
+  /*
+   * Set up state for the VAO
+   */
+
+  vao_.bind();
+  // Create an empty buffer
+  vbo_.bind();
+  vbo_.init_buffer(max_size_);
+  // Enable the vertex attributes for this buffer
+  attributes_.enable();
+  // Unbind the VBO and VAO so as not to overwrite the state by mistake
+  vbo_.unbind();
+  vao_.unbind();
 }
 
 /*
@@ -36,10 +49,8 @@ void VertexBatcher::draw(const RenderElement* render_element)
 
   current_element_ = render_element;
 
-  for (float v : render_element->vertices())
-  {
-    vertices_.push_back(v);
-  }
+  vertices_.insert(vertices_.end(), render_element->vertices().begin(),
+                   render_element->vertices().end());
 }
 
 void VertexBatcher::begin()
@@ -76,10 +87,16 @@ void VertexBatcher::flush()
       last_bound_texture_ = texture;
     }
 
+    // Update the vertices in the buffer
     vbo_.bind();
-    vbo_.set_vertices(vertices_);
-    vbo_.draw(draw_mode_);
+    vbo_.sub_vertices(vertices_);
     vbo_.unbind();
+
+    // Draw using the saved state (buffer & attributes) of the VAO
+    vao_.bind();
+    vao_.draw(draw_mode_);
+    vao_.unbind();
+
     vertices_.clear();
     draw_count_++;
   }

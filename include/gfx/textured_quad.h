@@ -7,7 +7,7 @@
 #define BE_TEXTURED_QUAD_H
 
 #include <vector>
-#include <BarelyGL/vertex_attribute.h>
+#include <BarelyGL/vertex_attribute_array.h>
 #include "render_element.h"
 #include "color.h"
 

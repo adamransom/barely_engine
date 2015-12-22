@@ -7,7 +7,7 @@
 #define BE_RENDER_ELEMENT_H
 
 #include <vector>
-#include <BarelyGL/vertex_attribute.h>
+#include <BarelyGL/vertex_attribute_array.h>
 #include "texture.h"
 
 namespace BarelyEngine {
